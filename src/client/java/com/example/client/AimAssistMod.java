@@ -1,4 +1,4 @@
-package com.example;
+package com.example.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
