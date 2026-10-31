@@ -1,4 +1,4 @@
-package com.example.aimassist;
+package com.example;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -34,7 +34,6 @@ public class AimAssistMod implements ClientModInitializer {
     private static KeyBinding toggleKey;
     private static KeyBinding menuKey;
 
-    // Класс конфигурации с автосохранением через Gson
     public static class Config {
         public boolean enabled = false;
         public double speed = 4.0;      
@@ -96,7 +95,7 @@ public class AimAssistMod implements ClientModInitializer {
 
             while (toggleKey.wasPressed()) {
                 CONFIG.enabled = !CONFIG.enabled;
-                CONFIG.save(); // Сохраняем состояние при переключении клавишей
+                CONFIG.save();
                 
                 String statusText = CONFIG.enabled ? "§aAim-Assist ВКЛ" : "§cAim-Assist ВЫКЛ";
                 client.player.sendMessage(Text.literal(statusText), true);
@@ -209,7 +208,7 @@ public class AimAssistMod implements ClientModInitializer {
                     Text.literal("Статус: " + (CONFIG.enabled ? "§aВКЛ" : "§cВЫКЛ")),
                     button -> {
                         CONFIG.enabled = !CONFIG.enabled;
-                        CONFIG.save(); // Сохраняем в файл при клике в меню
+                        CONFIG.save();
                         button.setMessage(Text.literal("Статус: " + (CONFIG.enabled ? "§aВКЛ" : "§cВЫКЛ")));
                     })
                     .dimensions(centerX - 100, centerY - 60, 200, 20)
@@ -267,5 +266,4 @@ public class AimAssistMod implements ClientModInitializer {
             this.client.setScreen(this.parent);
         }
     }
-						}
-				
+			}
