@@ -266,4 +266,4 @@ public class AimAssistMod implements ClientModInitializer {
             this.client.setScreen(this.parent);
         }
     }
-			}
+			} 
